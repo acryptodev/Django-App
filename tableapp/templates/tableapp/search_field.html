@@ -1,0 +1,26 @@
+<div id="search-form" class="pb-3">
+    
+    <div class="form-row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form id="search_form" method="post" action="{% url 'tableapp-search' %}">
+                {% csrf_token %}
+                <div class="form-group col-md-10" id="searchFormGroup">
+                    {% if search_value %}
+                        <input type="text" class="form-control" id="search_value" name="search_value" value="{{search_value}}" placeholder="Enter...">
+                    {% else %}
+                        <input type="text" class="form-control" id="search_value" name="search_value" placeholder="Enter...">
+                    {% endif %}
+    
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" id="btn-search" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-2 text-right">
+        	{% include 'tableapp/admin_button.html' %}
+        </div>
+    </div>
+</div>
