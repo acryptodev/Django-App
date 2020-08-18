@@ -73,6 +73,13 @@
         	</tbody>
         </table>
 		{% endif %}
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <label style="color:white; letter-spacing: 1px;font-size: 1em;">Newsfeed</label>
+                <textarea class="form-control rounded-5" rows="7" style="color:black" placeholder="Newsfeed">{% if newsfeed %} {{ newsfeed.text }} {% endif %}</textarea>
+            </div>
+        </div>
 		</div>
     </body>
 </html>

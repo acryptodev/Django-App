@@ -10,8 +10,16 @@ class Table(models.Model):
 	bday = models.DateField('Birthday')
 	mail = models.EmailField(max_length = 254, help_text="Enter the e-mail")
 	# blackboard = RichTextField()
-	blackboard = models.TextField()
 	created_on = models.DateTimeField(auto_now_add=True, editable=False)
 	updated_on = models.DateTimeField(auto_now=True)
 	def __str__(self):
 		return self.name
+class Newsfeed(models.Model):
+	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	subject = models.CharField(max_length=300)
+	text = models.TextField()
+	created_on = models.DateTimeField(auto_now_add=True, editable=False)
+	updated_on = models.DateTimeField(auto_now=True)
+	def __str__(self):
+		return self.subject
+		
