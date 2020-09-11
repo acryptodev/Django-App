@@ -5,7 +5,7 @@ from django.db.models import Q, Sum
 import datetime
 def table_list(request):
     if request.method == 'GET':
-        all_data = Table.objects.all()
+        all_data = Table1.objects.all()
         newsfeed = Newsfeed.objects.all().first()
         columns = {
             'Name': 'name',
@@ -27,7 +27,7 @@ def table_list(request):
 
 def filter_list(request):
 	search_value = request.POST.get('search_value')
-	filters = Table.objects.filter(
+	filters = Table1.objects.filter(
 		Q(name=search_value) |
 		Q(phone=search_value)
 		).distinct()
