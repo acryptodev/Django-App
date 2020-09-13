@@ -3,9 +3,20 @@
     <div class="form-row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <form id="search_form" method="post" action="{% url 'tableapp-search' %}">
+            
+            <form id="search_form" method="post" action="{% url 'tableapp:tableapp-search' %}">
                 {% csrf_token %}
-                <div class="form-group col-md-10" id="searchFormGroup">
+                <div class="form-group col-md-4">
+                    <select id="tableselect" class="form-control">
+                        {%for each_table in tablenames%}
+                        <option value={{each_table}} {% if each_table == selectedtable %} selected {% endif %}>
+                            {{each_table.capitalize}}
+                        </option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <div class="form-group col-md-6" id="searchFormGroup">
+                    
                     {% if search_value %}
                         <input type="text" class="form-control" id="search_value" name="search_value" value="{{search_value}}" placeholder="Enter...">
                     {% else %}
